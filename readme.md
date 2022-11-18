@@ -21,6 +21,10 @@ Test: "It should identify a number with '1' in it and replace it"
 code: beepBoop(5);
 Expected Output: ["Beep!", "Boop!", "Won't you be my neighbor?"]
 
-Test: "It should identify a number with that does not include '1','2' or '3'  and place that number back into the array."
+Test: "It should identify a number that does not include '1','2' or '3'  and place that number back into the array unchanged."
 code: beepBoop(5);
 Expected Output: [0, "Beep!", "Boop!", "Won't you be my neighbor?", 4, 5]
+
+Test: "It should identify a negative number and prompt the user to enter a number>=0"
+Code: beepBoop(-5);
+Expected Output: "Please enter a number equal to 0 or greater"

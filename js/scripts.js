@@ -1,5 +1,9 @@
 function beepBoop(input) {
 
+  if (parseInt(input)<0) {
+    return "Please enter a number equal to 0 or greater"
+  }
+
   let numberArray = [];
   for (let index=0; index<=Number(input); index++) {
     numberArray.push(index);
@@ -18,5 +22,23 @@ function beepBoop(input) {
     }
   });
 
-  return substitutedArray;
+  return substitutedArray.join(", ");
 }
+
+function formSubmit (event) {
+  event.preventDefault();
+  document.getElementById("beepBooped").innerText = "";
+  const input = document.getElementById("userNumber").value;
+  let result = beepBoop(input);
+  document.getElementById("beepBooped").append(result);
+}
+
+function refreshPage() {
+  window.location.reload();
+}
+
+
+window.addEventListener("load", function() {
+  document.querySelector("form#input").addEventListener("submit", formSubmit);
+  document.getElementById("refresh").addEventListener ("click", refreshPage);
+});
